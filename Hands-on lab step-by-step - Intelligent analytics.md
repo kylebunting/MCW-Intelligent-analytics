@@ -1,10 +1,17 @@
-[](images/HeaderPic.png "Microsoft Cloud Workshops")
+![](images/HeaderPic.png "Microsoft Cloud Workshops")
 
-# Intelligent analytics
+<div class="MCWHeader1">
+Intelligent analytics
+</div>
 
-## Hands-on lab step-by-step
+<div class="MCWHeader2">
+Hands-on lab step-by-step
+</div>
 
-## March 2018
+<div class="MCWHeader3">
+March 2018
+</div>
+
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
@@ -15,68 +22,64 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
-## Contents
+**Contents**
 
 <!-- TOC -->
 
-- [Intelligent analytics](#intelligent-analytics)
-    - [Hands-on lab step-by-step](#hands-on-lab-step-by-step)
-    - [March 2018](#march-2018)
-    - [Contents](#contents)
 - [Intelligent analytics hands-on lab step-by-step](#intelligent-analytics-hands-on-lab-step-by-step)
     - [Abstract and learning objectives](#abstract-and-learning-objectives)
     - [Overview](#overview)
     - [Solution architecture](#solution-architecture)
     - [Requirements](#requirements)
     - [Before the hands-on lab](#before-the-hands-on-lab)
-        - [Task 1: Provision Power BI](#task-1--provision-power-bi)
-        - [Task 2: Setup a lab virtual machine (VM)](#task-2--setup-a-lab-virtual-machine-vm)
-    - [Exercise 1: Environment setup](#exercise-1--environment-setup)
-        - [Task 1: Connect to the lab VM](#task-1--connect-to-the-lab-vm)
-        - [Task 2: Download and open the ConciergePlus starter solution](#task-2--download-and-open-the-conciergeplus-starter-solution)
-        - [Task 3: Create App Services](#task-3--create-app-services)
-        - [Task 4: Provision Service Bus](#task-4--provision-service-bus)
-        - [Task 5: Provision Event Hubs](#task-5--provision-event-hubs)
-        - [Task 6: Provision Azure Cosmos DB](#task-6--provision-azure-cosmos-db)
-        - [Task 7: Provision Azure Search](#task-7--provision-azure-search)
-        - [Task 8: Create Stream Analytics job](#task-8--create-stream-analytics-job)
-        - [Task 9: Start the Stream Analytics Job](#task-9--start-the-stream-analytics-job)
-        - [Task 10: Provision an Azure Storage Account](#task-10--provision-an-azure-storage-account)
-        - [Task 11: Provision Cognitive Services](#task-11--provision-cognitive-services)
-    - [Exercise 2: Implement message forwarding](#exercise-2--implement-message-forwarding)
-        - [Task 1: Implement the event processor](#task-1--implement-the-event-processor)
-        - [Task 2: Configure the Chat Message Processor Web Job](#task-2--configure-the-chat-message-processor-web-job)
-                - [Event Hub connection string](#event-hub-connection-string)
-                - [Event Hub name](#event-hub-name)
-                - [Storage account](#storage-account)
-                - [Service Bus connection String](#service-bus-connection-string)
-                - [Chat topic](#chat-topic)
-                - [Text Analytics API settings](#text-analytics-api-settings)
-    - [Exercise 3: Configure the Chat Web App settings](#exercise-3--configure-the-chat-web-app-settings)
-        - [Task 1: Event Hub connection String](#task-1--event-hub-connection-string)
-        - [Task 2: Event Hub name](#task-2--event-hub-name)
-        - [Task 3: Service Bus connection String](#task-3--service-bus-connection-string)
-        - [Task 4: Chat topic path and chat request topic path](#task-4--chat-topic-path-and-chat-request-topic-path)
-    - [Exercise 4: Deploying the App Services](#exercise-4--deploying-the-app-services)
-        - [Task 1: Publish the ChatMessageSentimentProcessor Web Job](#task-1--publish-the-chatmessagesentimentprocessor-web-job)
-        - [Task 2: Publish the ChatWebApp](#task-2--publish-the-chatwebapp)
-        - [Task 3: Testing hotel lobby chat](#task-3--testing-hotel-lobby-chat)
-    - [Exercise 5: Add intelligence](#exercise-5--add-intelligence)
-        - [Task 1: Implement sentiment analysis](#task-1--implement-sentiment-analysis)
-        - [Task 2: Implement linguistic understanding](#task-2--implement-linguistic-understanding)
-        - [Task 3: Implement speech to text](#task-3--implement-speech-to-text)
-        - [Task 4: Re-deploy and test](#task-4--re-deploy-and-test)
-    - [Exercise 6: Building the Power BI dashboard](#exercise-6--building-the-power-bi-dashboard)
-        - [Task 1: Create the static dashboard](#task-1--create-the-static-dashboard)
-        - [Task 2: Create the real-time dashboard](#task-2--create-the-real-time-dashboard)
-    - [Exercise 7: Enabling search indexing](#exercise-7--enabling-search-indexing)
-        - [Task 1: Verifying message archival](#task-1--verifying-message-archival)
-        - [Task 2: Creating the index and indexer](#task-2--creating-the-index-and-indexer)
-        - [Task 3: Update the Web App web.config](#task-3--update-the-web-app-webconfig)
-        - [Task 4: Configure the Search API App](#task-4--configure-the-search-api-app)
-        - [Task 5: Re-publish apps](#task-5--re-publish-apps)
+        - [Task 1: Provision Power BI](#task-1-provision-power-bi)
+        - [Task 2: Setup a lab virtual machine (VM)](#task-2-setup-a-lab-virtual-machine-vm)
+    - [Exercise 1: Environment setup](#exercise-1-environment-setup)
+        - [Task 1: Connect to the lab VM](#task-1-connect-to-the-lab-vm)
+        - [Task 2: Download and open the ConciergePlus starter solution](#task-2-download-and-open-the-conciergeplus-starter-solution)
+        - [Task 3: Create App Services](#task-3-create-app-services)
+        - [Task 4: Provision Service Bus](#task-4-provision-service-bus)
+        - [Task 5: Provision Event Hubs](#task-5-provision-event-hubs)
+        - [Task 6: Provision Azure Cosmos DB](#task-6-provision-azure-cosmos-db)
+        - [Task 7: Provision Azure Search](#task-7-provision-azure-search)
+        - [Task 8: Create Stream Analytics job](#task-8-create-stream-analytics-job)
+        - [Task 9: Start the Stream Analytics Job](#task-9-start-the-stream-analytics-job)
+        - [Task 10: Provision an Azure Storage Account](#task-10-provision-an-azure-storage-account)
+        - [Task 11: Provision Cognitive Services](#task-11-provision-cognitive-services)
+    - [Exercise 2: Implement message forwarding](#exercise-2-implement-message-forwarding)
+        - [Task 1: Implement the event processor](#task-1-implement-the-event-processor)
+        - [Task 2: Configure the Chat Message Processor Web Job](#task-2-configure-the-chat-message-processor-web-job)
+            - [Event Hub connection string](#event-hub-connection-string)
+            - [Event Hub name](#event-hub-name)
+            - [Storage account](#storage-account)
+            - [Service Bus connection String](#service-bus-connection-string)
+            - [Chat topic](#chat-topic)
+            - [Text Analytics API settings](#text-analytics-api-settings)
+    - [Exercise 3: Configure the Chat Web App settings](#exercise-3-configure-the-chat-web-app-settings)
+        - [Task 1: Event Hub connection String](#task-1-event-hub-connection-string)
+        - [Task 2: Event Hub name](#task-2-event-hub-name)
+        - [Task 3: Service Bus connection String](#task-3-service-bus-connection-string)
+        - [Task 4: Chat topic path and chat request topic path](#task-4-chat-topic-path-and-chat-request-topic-path)
+    - [Exercise 4: Deploying the App Services](#exercise-4-deploying-the-app-services)
+        - [Task 1: Publish the ChatMessageSentimentProcessor Web Job](#task-1-publish-the-chatmessagesentimentprocessor-web-job)
+        - [Task 2: Publish the ChatWebApp](#task-2-publish-the-chatwebapp)
+        - [Task 3: Testing hotel lobby chat](#task-3-testing-hotel-lobby-chat)
+    - [Exercise 5: Add intelligence](#exercise-5-add-intelligence)
+        - [Task 1: Implement sentiment analysis](#task-1-implement-sentiment-analysis)
+        - [Task 2: Implement linguistic understanding](#task-2-implement-linguistic-understanding)
+        - [Task 3: Implement speech to text](#task-3-implement-speech-to-text)
+        - [Task 4: Re-deploy and test](#task-4-re-deploy-and-test)
+    - [Exercise 6: Building the Power BI dashboard](#exercise-6-building-the-power-bi-dashboard)
+        - [Task 1: Create the static dashboard](#task-1-create-the-static-dashboard)
+        - [Task 2: Create the real-time dashboard](#task-2-create-the-real-time-dashboard)
+    - [Exercise 7: Enabling search indexing](#exercise-7-enabling-search-indexing)
+        - [Task 1: Verifying message archival](#task-1-verifying-message-archival)
+        - [Task 2: Creating the index and indexer](#task-2-creating-the-index-and-indexer)
+        - [Task 3: Update the Web App web.config](#task-3-update-the-web-app-webconfig)
+        - [Task 4: Configure the Search API App](#task-4-configure-the-search-api-app)
+        - [Task 5: Re-publish apps](#task-5-re-publish-apps)
     - [After the hands-on lab](#after-the-hands-on-lab)
-        - [Task 1: Delete the resource group](#task-1--delete-the-resource-group)
+        - [Task 1: Delete the resource group](#task-1-delete-the-resource-group)
 
 <!-- /TOC -->
 
@@ -871,7 +874,7 @@ In this section, you will implement the message forwarding from the ingest Event
       <add key="textAnalyticsAccountKey" value="" />
     ```
 
-##### Event Hub connection string 
+#### Event Hub connection string 
 
 The connection string required by the ChatMessageSentimentProcessor is different from the typical Event Hub consumer, because not only does it need Listen permissions, but it also needs Send and Manage permissions on the Service Bus Namespace (because it receives messages, as well as creates Subscriptions).
 
@@ -897,7 +900,7 @@ The connection string required by the ChatMessageSentimentProcessor is different
 
 7.  Return to the **app.config** file in Visual Studio, and paste this as the **value** for **eventHubConnectionString**.
 
-##### Event Hub name
+#### Event Hub name
 
 Your event hubs can be found by going to your Event Hub overview blade, and selecting Event Hubs from the left menu.
 
@@ -907,7 +910,7 @@ Your event hubs can be found by going to your Event Hub overview blade, and sele
 
 2.  For the **destinationEventHubName**, enter the name of your second Event Hub, **awchathub2**.
 
-##### Storage account
+#### Storage account
 
 Your storage accounts can be found by going to the intelligent-analytics resource group, and selecting the Storage account.
 
@@ -922,7 +925,7 @@ Your storage accounts can be found by going to the intelligent-analytics resourc
     -   Copy the Key value for key1, and paste that into the value for storageAccountKey in the App.Config file. 
         ![In the Access Keys section, the value for Key1 and its copy button are circled.](images/Hands-onlabstep-by-step-Intelligentanalyticsimages/media/image83.png "Access Keys section")
 
-##### Service Bus connection String 
+#### Service Bus connection String 
 
 The namespace, and therefore connection string, for the service bus is different from the one for the event hub. As we did for the event hub, we need to create a shared access policy to allow the ChatMessageSentimentProcessor Manage, Send, and Listen permissions.
 
@@ -952,13 +955,13 @@ The namespace, and therefore connection string, for the service bus is different
 
 8.  Return to the **app.config** and paste this as the value for **serviceBusConnectionString**.
 
-##### Chat topic 
+#### Chat topic 
 
 1.  For the **chatTopicPath**, enter the name of the Service Bus Topic you had created (e.g., awhotel). This can be found under Topics on the Service Bus overview blade.
 
     ![Service bus entities overview blade with topics selected.](images/Hands-onlabstep-by-step-Intelligentanalyticsimages/media/image89.png "Service bus entities overview blade")
 
-##### Text Analytics API settings
+#### Text Analytics API settings
 
 1.  Using the Azure Portal, open the Text API (awhotels-sentiment), copy the value under Endpoint into the **textAnalyticsBaseUrl** setting. Be sure to include a trailing slash in the URL (e.g. <https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/)>. 
 

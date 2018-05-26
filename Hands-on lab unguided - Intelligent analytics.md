@@ -1,10 +1,16 @@
-[](images/HeaderPic.png "Microsoft Cloud Workshops")
+![](images/HeaderPic.png "Microsoft Cloud Workshops")
 
-# Intelligent analytics
+<div class="MCWHeader1">
+Intelligent analytics
+</div>
 
-## Hands-on lab unguided
+<div class="MCWHeader2">
+Hands-on lab unguided
+</div>
 
-## March 2018
+<div class="MCWHeader3">
+March 2018
+</div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
@@ -15,59 +21,55 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 Microsoft and the trademarks listed at https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
-## Contents
+**Contents**
 
 <!-- TOC -->
 
-- [Intelligent analytics](#intelligent-analytics)
-    - [Hands-on lab unguided](#hands-on-lab-unguided)
-    - [March 2018](#march-2018)
-    - [Contents](#contents)
 - [Intelligent analytics hands-on lab unguided](#intelligent-analytics-hands-on-lab-unguided)
     - [Abstract and learning objectives](#abstract-and-learning-objectives)
     - [Overview](#overview)
     - [Solution architecture](#solution-architecture)
     - [Requirements](#requirements)
     - [Before the hands-on lab](#before-the-hands-on-lab)
-        - [Task 1: Provision Power BI](#task-1--provision-power-bi)
-        - [Task 2: Setup a lab virtual machine (VM)](#task-2--setup-a-lab-virtual-machine-vm)
-    - [Exercise 1: Environment setup](#exercise-1--environment-setup)
-        - [Task 1: Connect to the lab VM](#task-1--connect-to-the-lab-vm)
-        - [Task 2: Download and open the ConciergePlus starter solution](#task-2--download-and-open-the-conciergeplus-starter-solution)
-        - [Task 3: Create App Services](#task-3--create-app-services)
-        - [Task 4: Provision Service Bus](#task-4--provision-service-bus)
-        - [Task 5: Provision Event Hubs](#task-5--provision-event-hubs)
-        - [Task 6: Provision Azure Cosmos DB](#task-6--provision-azure-cosmos-db)
-        - [Task 7: Provision Azure Search](#task-7--provision-azure-search)
-        - [Task 8: Create Stream Analytics job](#task-8--create-stream-analytics-job)
-        - [Task 9: Start the Stream Analytics Job](#task-9--start-the-stream-analytics-job)
-        - [Task 10: Provision an Azure Storage account](#task-10--provision-an-azure-storage-account)
-        - [Task 11: Provision Cognitive Services](#task-11--provision-cognitive-services)
-    - [Exercise 2: Implement message forwarding](#exercise-2--implement-message-forwarding)
-        - [Task 1: Implement the event processor](#task-1--implement-the-event-processor)
-        - [Task 2: Configure the Chat Message Processor Web Job](#task-2--configure-the-chat-message-processor-web-job)
-    - [Exercise 3: Configure the Chat Web App settings](#exercise-3--configure-the-chat-web-app-settings)
-        - [Task 1: Configure the Chat Web App settings](#task-1--configure-the-chat-web-app-settings)
-    - [Exercise 4: Deploying the App Services](#exercise-4--deploying-the-app-services)
-        - [Task 1: Publish the ChatMessageSentimentProcessor Web Job](#task-1--publish-the-chatmessagesentimentprocessor-web-job)
-        - [Task 2: Publish the ChatWebApp](#task-2--publish-the-chatwebapp)
-        - [Task 3: Testing hotel lobby chat](#task-3--testing-hotel-lobby-chat)
-    - [Exercise 5: Add intelligence](#exercise-5--add-intelligence)
-        - [Task 1: Implement sentiment analysis](#task-1--implement-sentiment-analysis)
-        - [Task 2: Implement linguistic understanding](#task-2--implement-linguistic-understanding)
-        - [Task 3: Implement speech to text](#task-3--implement-speech-to-text)
-        - [Task 4: Re-deploy and test](#task-4--re-deploy-and-test)
-    - [Exercise 6: Building the Power BI dashboard](#exercise-6--building-the-power-bi-dashboard)
-        - [Task 1: Create the static dashboard](#task-1--create-the-static-dashboard)
-        - [Task 2: Create the real-time dashboard](#task-2--create-the-real-time-dashboard)
-    - [Exercise 7: Enabling search indexing](#exercise-7--enabling-search-indexing)
-        - [Task 1: Verifying message archival](#task-1--verifying-message-archival)
-        - [Task 2: Creating the index and indexer](#task-2--creating-the-index-and-indexer)
-        - [Task 3: Update the Web App web.config](#task-3--update-the-web-app-webconfig)
-        - [Task 4: Configure the Search API App](#task-4--configure-the-search-api-app)
-        - [Task 5: Re-publish apps](#task-5--re-publish-apps)
+        - [Task 1: Provision Power BI](#task-1-provision-power-bi)
+        - [Task 2: Setup a lab virtual machine (VM)](#task-2-setup-a-lab-virtual-machine-vm)
+    - [Exercise 1: Environment setup](#exercise-1-environment-setup)
+        - [Task 1: Connect to the lab VM](#task-1-connect-to-the-lab-vm)
+        - [Task 2: Download and open the ConciergePlus starter solution](#task-2-download-and-open-the-conciergeplus-starter-solution)
+        - [Task 3: Create App Services](#task-3-create-app-services)
+        - [Task 4: Provision Service Bus](#task-4-provision-service-bus)
+        - [Task 5: Provision Event Hubs](#task-5-provision-event-hubs)
+        - [Task 6: Provision Azure Cosmos DB](#task-6-provision-azure-cosmos-db)
+        - [Task 7: Provision Azure Search](#task-7-provision-azure-search)
+        - [Task 8: Create Stream Analytics job](#task-8-create-stream-analytics-job)
+        - [Task 9: Start the Stream Analytics Job](#task-9-start-the-stream-analytics-job)
+        - [Task 10: Provision an Azure Storage account](#task-10-provision-an-azure-storage-account)
+        - [Task 11: Provision Cognitive Services](#task-11-provision-cognitive-services)
+    - [Exercise 2: Implement message forwarding](#exercise-2-implement-message-forwarding)
+        - [Task 1: Implement the event processor](#task-1-implement-the-event-processor)
+        - [Task 2: Configure the Chat Message Processor Web Job](#task-2-configure-the-chat-message-processor-web-job)
+    - [Exercise 3: Configure the Chat Web App settings](#exercise-3-configure-the-chat-web-app-settings)
+        - [Task 1: Configure the Chat Web App settings](#task-1-configure-the-chat-web-app-settings)
+    - [Exercise 4: Deploying the App Services](#exercise-4-deploying-the-app-services)
+        - [Task 1: Publish the ChatMessageSentimentProcessor Web Job](#task-1-publish-the-chatmessagesentimentprocessor-web-job)
+        - [Task 2: Publish the ChatWebApp](#task-2-publish-the-chatwebapp)
+        - [Task 3: Testing hotel lobby chat](#task-3-testing-hotel-lobby-chat)
+    - [Exercise 5: Add intelligence](#exercise-5-add-intelligence)
+        - [Task 1: Implement sentiment analysis](#task-1-implement-sentiment-analysis)
+        - [Task 2: Implement linguistic understanding](#task-2-implement-linguistic-understanding)
+        - [Task 3: Implement speech to text](#task-3-implement-speech-to-text)
+        - [Task 4: Re-deploy and test](#task-4-re-deploy-and-test)
+    - [Exercise 6: Building the Power BI dashboard](#exercise-6-building-the-power-bi-dashboard)
+        - [Task 1: Create the static dashboard](#task-1-create-the-static-dashboard)
+        - [Task 2: Create the real-time dashboard](#task-2-create-the-real-time-dashboard)
+    - [Exercise 7: Enabling search indexing](#exercise-7-enabling-search-indexing)
+        - [Task 1: Verifying message archival](#task-1-verifying-message-archival)
+        - [Task 2: Creating the index and indexer](#task-2-creating-the-index-and-indexer)
+        - [Task 3: Update the Web App web.config](#task-3-update-the-web-app-webconfig)
+        - [Task 4: Configure the Search API App](#task-4-configure-the-search-api-app)
+        - [Task 5: Re-publish apps](#task-5-re-publish-apps)
     - [After the hands-on lab](#after-the-hands-on-lab)
-        - [Task 1: Delete the resource group](#task-1--delete-the-resource-group)
+        - [Task 1: Delete the resource group](#task-1-delete-the-resource-group)
 
 <!-- /TOC -->
 
