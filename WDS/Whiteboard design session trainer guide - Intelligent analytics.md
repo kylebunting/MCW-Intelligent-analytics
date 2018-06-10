@@ -396,13 +396,11 @@ Tables reconvene with the larger group to hear a SME share the preferred solutio
 
 1. **What Azure service would you recommend Adventure Works use for sending email or SMS messages to guests requesting housekeeping or room services via chat?**
 
-    *Logic App could be used to send email or SMS messages to guests who request either housekeeping or room service requests via the chat application, while also meeting the Adventure Works' desire to use a serverless architecture in Azure. They could use a Twilio connector to send SMS messages to the guest's phone number on file, or an email could be sent if no phone number is available.*
+    _**Logic App could be used to send email or SMS messages to guests who request either housekeeping or room service requests via the chat application, while also meeting the Adventure Works' desire to use a serverless architecture in Azure. They could use a Twilio connector to send SMS messages to the guest's phone number on file, or an email could be sent if no phone number is available.**_
 
 2. **How could you integrate this service into your chat message processing flow?**
 
-    *If the LUIS API determines the request should be forwarded to either housekeeping or room service, then Event Processor logic could forward the message on to the Service Bus Topic appropriate for room service or housekeeping. From there, the Logic App could be triggered to send an email or SMS message to the guest as appropriate using the Service Bus connector for Logic App.*
-
-    > TODO: Create Logic App diagram, if appropriate. May not need one specifically for this, and then just use the preferred solution diagram to represent.
+    _**If the LUIS API determines the request should be forwarded to either housekeeping or room service, then Event Processor logic could forward the message on to the Service Bus Topic appropriate for room service or housekeeping. From there, the Logic App could be triggered to send an email or SMS message to the guest as appropriate using the Service Bus connector for Logic App.**_
 
 #### Message search
 
